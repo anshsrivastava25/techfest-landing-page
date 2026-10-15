@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Techfest 2026 · An Aetherial Renaissance</title>
+  <meta name="description" content="Techfest IIT Bombay 2026 — the 30th edition of Asia's largest science and technology festival. An Aetherial Renaissance. 16–18 December 2026." />
+  <meta name="theme-color" content="#05060f" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <noscript><style>.loader{display:none}h1 .line>span{transform:none;animation:none}.reveal{opacity:1;transform:none}.manifesto .w{opacity:1}</style></noscript>
+
+  <div class="loader" id="loader" aria-hidden="true">
+    <svg viewBox="-60 -60 120 120" class="loader-ring"><circle r="50" class="lr-bg"/><circle r="50" class="lr-fg" id="lrFg"/><circle r="30" class="lr-in"/></svg>
+    <b id="loadNum">0</b>
+    <span>Summoning the aether</span>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+  <canvas id="aether" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="cur-dot" aria-hidden="true"></div>
+  <div class="cur-ring" aria-hidden="true"><span></span></div>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Techfest<small>IIT Bombay · 30th</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#pillars">Pillars</a>
+      <a href="#numbers">Legacy</a>
+      <a href="#codex">Codex</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="https://techfest.org" class="btn btn-ghost" target="_blank" rel="noopener">Register ↗</a>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <svg class="orrery" viewBox="-400 -400 800 800" aria-hidden="true">
+        <g class="ring r1"><circle r="360" /><g class="ticks"></g></g>
+        <g class="ring r2"><circle r="280" /><circle r="6" cx="280" class="planet" /></g>
+        <g class="ring r3"><circle r="200" /><circle r="5" cx="-200" class="planet" /></g>
+        <g class="ring r4"><circle r="120" /><circle r="4" cy="-120" class="planet" /></g>
+        <g class="frame">
+          <rect x="-170" y="-170" width="340" height="340" />
+          <circle r="170" />
+          <path d="M0 -170 L147 85 L-147 85 Z" />
+          <path d="M0 170 L147 -85 L-147 -85 Z" />
+          <line x1="-400" y1="0" x2="400" y2="0" /><line x1="0" y1="-400" x2="0" y2="400" />
+        </g>
+      </svg>
+
+      <div class="hero-inner">
+        <p class="eyebrow"><span class="dot"></span> The 30th edition · IIT Bombay · Powai, Mumbai</p>
+        <h1>
+          <span class="line"><span>An&nbsp;<em>Aetherial</em></span></span>
+          <span class="line"><span>Renaissance</span></span>
+        </h1>
+        <p class="lede">Asia's largest science &amp; technology festival returns — where the old masters' curiosity meets the machines of tomorrow. Three days. One campus. Every frontier.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://techfest.org" target="_blank" rel="noopener">Enter the Aether <span>→</span></a>
+          <a class="btn btn-ghost" href="#pillars">Explore the pillars</a>
+        </div>
+
+        <div class="countdown" id="countdown" aria-live="off">
+          <div><b data-u="d">00</b><span>days</span></div>
+          <i>:</i>
+          <div><b data-u="h">00</b><span>hours</span></div>
+          <i>:</i>
+          <div><b data-u="m">00</b><span>mins</span></div>
+          <i>:</i>
+          <div><b data-u="s">00</b><span>secs</span></div>
+          <p>until <time datetime="2026-12-16">16 December 2026</time></p>
+        </div>
+      </div>
+      <p class="cursor-hint" aria-hidden="true"><i></i> Move your cursor · click for a burst</p>
+      <a href="#marquee" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- MARQUEE -->
+    <section class="marquee" id="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Robowars</span><span>✦</span><span>Hackathons</span><span>✦</span><span>AI &amp; ML</span><span>✦</span><span>Keynote Lectures</span><span>✦</span><span>Exhibitions</span><span>✦</span><span>Workshops</span><span>✦</span><span>Technoholix</span><span>✦</span><span>Drone Racing</span><span>✦</span><span>Fintech</span><span>✦</span>
+        <span>Robowars</span><span>✦</span><span>Hackathons</span><span>✦</span><span>AI &amp; ML</span><span>✦</span><span>Keynote Lectures</span><span>✦</span><span>Exhibitions</span><span>✦</span><span>Workshops</span><span>✦</span><span>Technoholix</span><span>✦</span><span>Drone Racing</span><span>✦</span><span>Fintech</span><span>✦</span>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="manifesto" id="manifesto" aria-label="Manifesto">
+      <p class="eyebrow">Manifesto</p>
+      <p class="manifesto-text" id="manifestoText">Since 1998, one campus has turned into a laboratory, a stage and an arena every December. Students build. Machines fight. Ideas collide. This year the question is simple: what if the next renaissance starts with you?</p>
+    </section>
+
+    <!-- PILLARS -->
+    <section class="section" id="pillars">
+      <header class="section-head reveal">
+        <p class="eyebrow">I · The Pillars</p>
+        <h2>Six ways to touch <em>the future.</em></h2>
+        <p>Hover, tap, wander. Each pillar is a doorway — pick the one that pulls at you.</p>
+      </header>
+
+      <div class="picker reveal" id="picker" role="group" aria-label="Find your pillar">
+        <span>I want to…</span>
+        <button type="button" data-pick="4,3">Build</button>
+        <button type="button" data-pick="1,5">Compete</button>
+        <button type="button" data-pick="2,4">Learn</button>
+        <button type="button" data-pick="5,3">Watch</button>
+        <button type="button" data-pick="6">Party</button>
+      </div>
+
+      <div class="pillars" id="pillarGrid">
+        <article class="card reveal" tabindex="0">
+          <span class="num">01</span>
+          <svg viewBox="0 0 64 64" class="glyph" aria-hidden="true"><path d="M32 6l7 16 17 2-12 12 3 17-15-9-15 9 3-17L8 24l17-2z"/></svg>
+          <h3>Competitions</h3>
+          <p>25+ flagship contests across robotics, AI, machine learning, fintech and hackathons — with a prize pool north of ₹65 lakh.</p>
+          <span class="tag">Compete</span>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <span class="num">02</span>
+          <svg viewBox="0 0 64 64" class="glyph" aria-hidden="true"><circle cx="32" cy="32" r="8"/><path d="M32 6v10M32 48v10M6 32h10M48 32h10M14 14l7 7M43 43l7 7M50 14l-7 7M21 43l-7 7"/></svg>
+          <h3>Lectures</h3>
+          <p>Nobel laureates, space scientists, founders, and the odd humanoid robot — voices that move the frontier, live on stage.</p>
+          <span class="tag">Listen</span>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <span class="num">03</span>
+          <svg viewBox="0 0 64 64" class="glyph" aria-hidden="true"><rect x="8" y="14" width="48" height="34" rx="3"/><path d="M20 56h24M32 48v8M18 38l8-9 7 6 6-10 7 13"/></svg>
+          <h3>Exhibitions</h3>
+          <p>300+ international exhibits — prototypes, prosthetics, autonomous machines — built by the people who dared to build them.</p>
+          <span class="tag">Wander</span>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <span class="num">04</span>
+          <svg viewBox="0 0 64 64" class="glyph" aria-hidden="true"><path d="M10 50l14-14M22 38l-4-4 20-20 8 8-20 20zM44 14l6-6M14 54l-4 0 0-4"/></svg>
+          <h3>Workshops</h3>
+          <p>Hands-on, certified learning in deep learning, robotics and coding — go in curious, leave with something working.</p>
+          <span class="tag">Build</span>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <span class="num">05</span>
+          <svg viewBox="0 0 64 64" class="glyph" aria-hidden="true"><rect x="14" y="26" width="36" height="22" rx="4"/><circle cx="24" cy="37" r="4"/><circle cx="40" cy="37" r="4"/><path d="M32 26V14M28 14h8M8 34v6M56 34v6"/></svg>
+          <h3>Robowars</h3>
+          <p>International combat robots. A bulletproof arena. Seven thousand roaring spectators. Metal meets metal.</p>
+          <span class="tag">Witness</span>
+        </article>
+        <article class="card reveal" tabindex="0">
+          <span class="num">06</span>
+          <svg viewBox="0 0 64 64" class="glyph" aria-hidden="true"><path d="M44 10a22 22 0 1 0 10 32A18 18 0 0 1 44 10z"/><circle cx="50" cy="16" r="1.5"/><circle cx="56" cy="26" r="1"/></svg>
+          <h3>Technoholix</h3>
+          <p>When the sun sets, the campus ignites — headline EDM nights, light shows and spectacle that closes each day.</p>
+          <span class="tag">Feel</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- NUMBERS -->
+    <section class="section numbers" id="numbers">
+      <header class="section-head reveal">
+        <p class="eyebrow">II · The Legacy</p>
+        <h2>A festival measured in <em>lakhs.</em></h2>
+      </header>
+      <div class="stats">
+        <div class="stat reveal"><b data-count="180000" data-suffix="+">0</b><span>Footfall in the latest edition</span></div>
+        <div class="stat reveal"><b data-count="35000" data-suffix="+">0</b><span>Competition participants</span></div>
+        <div class="stat reveal"><b data-count="2500" data-suffix="+">0</b><span>Indian colleges reached</span></div>
+        <div class="stat reveal"><b data-count="500" data-suffix="+">0</b><span>International universities</span></div>
+        <div class="stat reveal"><b data-count="65" data-prefix="₹" data-suffix="L+">0</b><span>Prize money on offer</span></div>
+        <div class="stat reveal"><b data-count="30" data-suffix="th">0</b><span>Edition — since 1998</span></div>
+      </div>
+      <p class="fine reveal">Figures drawn from published Techfest materials and press; check techfest.org for the latest.</p>
+    </section>
+
+    <!-- CODEX -->
+    <section class="section codex" id="codex">
+      <header class="section-head reveal">
+        <p class="eyebrow">III · The Codex</p>
+        <h2>Twenty-eight years in <em>the margins.</em></h2>
+        <p>Drag or scroll sideways through the notebook.</p>
+      </header>
+      <div class="timeline" id="timeline" data-cursor="Drag">
+        <article><time>1998</time><h4>The first spark</h4><p>Students at IIT Bombay launch Techfest with competitions, lectures, workshops and exhibitions — the core that endures.</p></article>
+        <article><time>2006</time><h4>Applied technology</h4><p>The focus shifts from pure engineering toward what technology can actually do for people.</p></article>
+        <article><time>2009</time><h4>Scintillations</h4><p>Night exhibitions and interactive shows arrive, lighting up the campus after dark.</p></article>
+        <article><time>2015</time><h4>1.65 lakh souls</h4><p>A then-record footfall of 1.65 lakh visitors across three days.</p></article>
+        <article><time>2018</time><h4>A Guinness record</h4><p>Most LED lights lit simultaneously — a world record set on campus.</p></article>
+        <article><time>2019</time><h4>Da Vincian Spectacle</h4><p>Art and science fuse under a Renaissance banner — the ancestor of this year's theme.</p></article>
+        <article><time>2022</time><h4>India's first 5G campus</h4><p>IIT Bombay becomes the country's first 5G institute, announced during Techfest.</p></article>
+        <article class="now"><time>2026</time><h4>An Aetherial Renaissance</h4><p>The 30th edition. A new age of invention — and you're in the first row.</p></article>
+      </div>
+    </section>
+
+    <!-- VISIT -->
+    <section class="section visit" id="visit">
+      <div class="visit-card reveal">
+        <div class="visit-copy">
+          <p class="eyebrow">IV · Join us</p>
+          <h2>Powai. <em>16–18 Dec.</em> 2026.</h2>
+          <p>Stay on campus with the 4-day hostel package (check-in 15 Dec, check-out 19 Dec). Student societies can chase a ₹1,00,000 seed fund through the Catalyst programme. And Techfest is heading to Las Vegas as Official Innovation Partner of the India Pavilion at CES 2027.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://techfest.org" target="_blank" rel="noopener">Register on techfest.org <span>↗</span></a>
+            <a class="btn btn-ghost" href="mailto:info@techfest.org">info@techfest.org</a>
+          </div>
+        </div>
+        <ul class="facts">
+          <li><b>When</b>16 – 18 December 2026</li>
+          <li><b>Where</b>IIT Bombay Campus, Powai, Mumbai</li>
+          <li><b>Stay</b>4-day hostel package</li>
+          <li><b>Next</b>CES 2027 · Las Vegas · 6–9 Jan</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><span class="brand-mark" aria-hidden="true"></span> Techfest · IIT Bombay</div>
+    <p>Concept landing page — a design exploration, not the official site. Visit <a href="https://techfest.org" target="_blank" rel="noopener">techfest.org</a> for the real thing.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
